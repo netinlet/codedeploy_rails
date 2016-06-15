@@ -1,0 +1,24 @@
+version: 0.0
+os: linux
+files:
+  - source: .
+    destination: /home/ec2-user/apps/codedeploy_rails
+hooks:
+  BeforeInstall:
+    - location: scripts/before_install.sh
+      runas: ec2-user
+  AfterInstall:
+    - location: scripts/configure_foreman_scripts.sh
+      runas: ec2-user
+    - location: scripts/configure_rails.sh
+      runas: ec2-user
+  ApplicationStart:
+    - location: scripts/start_server.sh
+      runas: ec2-user
+  ValidateService:
+    - location: scripts/validate_service.sh
+      runas: ec2-user
+  ApplicationStop:
+    - location: scripts/stop_server.sh
+      runas: ec2-user
+
