@@ -2,7 +2,9 @@
 
 echo Configuring Foreman
 
+gem install io-console
 gem install foreman
+rbenv rehash
 
 foreman export --port 3000 --user=ec2-user supervisord tmp/foreman_export
 
