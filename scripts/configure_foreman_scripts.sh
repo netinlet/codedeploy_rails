@@ -2,6 +2,9 @@
 
 echo Configuring Foreman
 
+echo $USER
+echo $(env)
+
 gem install io-console
 gem install foreman
 rbenv rehash
