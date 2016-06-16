@@ -5,6 +5,9 @@ echo Configuring Foreman
 echo $USER
 echo $(env)
 
+. /home/ec2-user/.bash_profile
+rbenv rehash
+
 gem install io-console
 gem install foreman
 rbenv rehash
