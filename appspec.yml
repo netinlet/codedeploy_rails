@@ -5,10 +5,12 @@ files:
     destination: /home/ec2-user/apps/codedeploy_rails
 hooks:
   BeforeInstall:
-    - location: scripts/before_install.sh
+    - location: scripts/install_and_configure_supervisord.sh
       runas: ec2-user
   AfterInstall:
-    - location: scripts/configure_foreman_scripts.sh
+    - location: scripts/update_permissions.sh
+      runas: ec2-user
+    - location: scripts/configure_foreman.sh
       runas: ec2-user
     - location: scripts/configure_rails.sh
       runas: ec2-user

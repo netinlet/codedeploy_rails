@@ -2,4 +2,4 @@
 
 echo Application Stop Hook
 
-sudo service supervisord stop
+/usr/local/bin/supervisorctl shutdown
